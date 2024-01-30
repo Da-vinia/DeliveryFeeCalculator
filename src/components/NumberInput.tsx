@@ -18,7 +18,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
   placeholder,
   min,
   max,
- step = 1,
+  step = 1,
   "data-test-id": deliveryDistance,
 }) => {
 
@@ -37,7 +37,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <input
       id={id}
-      type="text"
+      type="number"
       value={value}
       onChange={handleInputChange}
       placeholder={placeholder}

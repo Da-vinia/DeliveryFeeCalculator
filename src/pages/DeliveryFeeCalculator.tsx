@@ -6,7 +6,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import QuantityInput from "../components/QuantityInput";
-// import DistanceInput from "../components/DistanceInput";
 import NumberInput from "../components/NumberInput";
 
 
@@ -24,15 +23,9 @@ const DeliveryFeeCalculator: React.FC = () => {
                 case 'cartValue':
                     setCartValue(value as number);
                     break;
-                // case 'deliveryDistance':
-                //     setDeliveryDistance(value as number);
-                //     break;
                 case 'numItems':
                     setNumItems(value as number);
                     break;
-                // case 'orderTime':
-                //     setOrderTime(value as Date);
-                //     break;
                 default:
                     break;
             }
@@ -45,14 +38,6 @@ const DeliveryFeeCalculator: React.FC = () => {
         }
       };
    
-
-    // const handleCartValueChange = (value: string | undefined) => {
-    //     const detectedSeparator = value?.includes(',') ? ',' : value?.includes('.') ? '.' : ',';
-    //     const numericValue = parseFloat((value || '').replace(detectedSeparator === ',' ? '.' : ',', '')) || 0;
-    //     setCartValue(numericValue);
-    //   };
-      
-
     const handleDateChange = (date: Date | null) => {
         if(date) {
             setOrderTime(date);
@@ -103,30 +88,23 @@ const DeliveryFeeCalculator: React.FC = () => {
             <div className="inputsContainer">
                 <div className="inputPair">
                     <label>Cart items</label>
-                        <QuantityInput onValueChange={(value) => handleInputChange('numItems', value)} />
+                    <QuantityInput onValueChange={(value) => handleInputChange('numItems', value)} />
                 </div>
                 <div className="inputPair">
                     <label>Cart value</label>
                     <CurrencyInput
                         id="cartValue"
                         name="cartValue"
-                        placeholder="€0.00"
+                        placeholder="€0,00"
                         decimalsLimit={2}
                         prefix="€"
-                        decimalSeparator="."
+                        decimalSeparator=","
                         onValueChange={(value, name, values) => handleInputChange('cartValue', parseFloat(value || '0'))}
                         data-test-id="cartValue"
                     />
                 </div>
                 <div className="inputPair">
                     <label>Delivery distance (meters)</label>
-                    {/* <input 
-                        type="number"
-                        //placeholder="enter delivery distance"
-                        value={deliveryDistance} 
-                        onChange={(e) => handleInputChange('deliveryDistance', parseInt(e.target.value, 10))}
-                        data-test-id="deliveryDistance"
-                    /> */}
 
                     {/* <DistanceInput
                         placeholder="enter delivery distance"
@@ -144,7 +122,7 @@ const DeliveryFeeCalculator: React.FC = () => {
                         min={0}                         
                         max={1000000}
                         step={0.1}                      
-                        data-test-id="deliveryDistance"               
+                        data-test-id="deliveryDistance"
                     />
                 </div>
                 <div className="inputPair">

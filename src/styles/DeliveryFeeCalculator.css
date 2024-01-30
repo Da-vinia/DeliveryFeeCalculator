@@ -21,7 +21,8 @@
     min-height: 50vh;
 }
 .calculatorContainer p {
-    text-align: center;  
+    text-align: center; 
+    margin: 0; 
 }
 .inputPair {
     display: flex;
@@ -138,7 +139,11 @@ li.react-datepicker__time-list-item:hover {
     .calculatorContainer {
         width: 75%;
     }
+    .calculatorContainer h1 {
+        font-size: 1.5rem;
+    }
     .resultContainer  {
         width: 50%;
     }
+    
 } 

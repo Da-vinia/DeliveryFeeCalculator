@@ -4,7 +4,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { QuantityInputProps } from './types';
 import { QuantityInputWrapper, StyledInput, StyledButton } from '../styles/QuantityInput.styles';
 
-const QuantityInput: FC<QuantityInputProps> = ({ ariaLabel = 'Quantity Input', min = 1, max = 99, onValueChange }) => {
+const QuantityInput: FC<QuantityInputProps> = ({ ariaLabel = 'Quantity Input', min = 0, max = 99, onValueChange }) => {
   const [quantity, setQuantity] = useState<number>(min);
 
   const handleIncrement = () => {

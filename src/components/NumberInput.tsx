@@ -1,6 +1,6 @@
 import React  from "react";
 
-interface NumberInputProps {
+interface DistanceInputProps {
   id: string;
   value: number;
   onChange: (value: number) => void;
@@ -9,9 +9,10 @@ interface NumberInputProps {
   max: number;
   step?: number;
   "data-test-id": string;
+  infoText: string;
 }
 
-const NumberInput: React.FC<NumberInputProps> = ({
+const DistanceInput: React.FC<DistanceInputProps> = ({
   id,
   value,
   onChange,
@@ -20,6 +21,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
   max,
   step = 1,
   "data-test-id": deliveryDistance,
+  infoText,
 }) => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,17 +37,20 @@ const NumberInput: React.FC<NumberInputProps> = ({
       };
  
   return (
-    <input
-      id={id}
-      type="number"
-      value={value}
-      onChange={handleInputChange}
-      placeholder={placeholder}
-      min={min}
-      max={max}
-      data-test-id={deliveryDistance}
-    />
+    <>
+      <input
+        id={id}
+        type="number"
+        value={value === 0 ? '' : value}
+        onChange={handleInputChange}
+        placeholder={value === 0 ? placeholder : ''}
+        min={min}
+        max={max}
+        data-test-id={deliveryDistance}
+      />
+      <span style={{ fontSize: '10px', color: '#888' }}>{infoText}</span>
+    </>
   );
 };
 
-export default NumberInput;
+export default DistanceInput;

@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import QuantityInput from "../components/QuantityInput";
-import NumberInput from "../components/NumberInput";
+import DistanceInput from "../components/NumberInput";
 
 
 const DeliveryFeeCalculator: React.FC = () => {
@@ -105,25 +105,17 @@ const DeliveryFeeCalculator: React.FC = () => {
                 </div>
                 <div className="inputPair">
                     <label>Delivery distance (meters)</label>
-
-                    {/* <DistanceInput
-                        placeholder="enter delivery distance"
-                        value={deliveryDistance}
-                        onChange={(event, value) => handleInputChange('deliveryDistance', value || 0)}
-                        data-test-id="deliveryDistance"
-                        // onChange={handleInputChange}
-                    /> */}
-                    
-                    <NumberInput
+                    <DistanceInput
                         id="distanceInput"                     
                         onChange={handleDistanceInputChange}  
                         value={deliveryDistance}        
-                        placeholder="Enter delivery distance"       
+                        placeholder="Enter delivery distance"  
                         min={0}                         
                         max={1000000}
                         step={0.1}                      
                         data-test-id="deliveryDistance"
-                    />
+                        infoText="1000 meters (=1km)"   
+                    />    
                 </div>
                 <div className="inputPair">
                     <label>Order time</label>
